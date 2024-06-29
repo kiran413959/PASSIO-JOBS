@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { PageViewModeType, ScrollModeType,pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+
 
 @Component({
   selector: 'app-experience-page',
