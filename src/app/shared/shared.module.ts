@@ -11,6 +11,7 @@ import { HeaderComponent } from "./componets/header/header.component";
         ],
         exports:[
             HeaderComponent,
+            
         ]
 })
 

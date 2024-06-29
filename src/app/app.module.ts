@@ -16,6 +16,7 @@ import { SiderComponent } from './sider/sider.component';
 import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
+import { ExperiencePageComponent } from './experience-page/experience-page.component';
 
 
 
@@ -33,6 +34,7 @@ import { SharedModule } from './shared/shared.module';
     LoginComponent,
     SiderComponent,
     SignupComponent,
+    ExperiencePageComponent,
     
   ],
   imports: [
