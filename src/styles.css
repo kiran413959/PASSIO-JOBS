@@ -15,5 +15,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@tailwind variants;
+
+
+
+
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.after-header {
+    height: -webkit-calc(100vh - 6rem); /* Safari, Chrome */
+    height: -moz-calc(100vh - 6rem); /* Firefox */
+    height: calc(100vh - 6rem);       /* Standard */
+  }

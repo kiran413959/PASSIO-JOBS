@@ -31,10 +31,12 @@ module.exports = {
         '320' : '320px',
         '365' : '365px',
         '700' : '700px',
+        
          
       },
 
       height:{
+        'total-header' : '6rem',
         '80perc' : '80%',
         '130' : '130px',
         '600': '600px',
@@ -49,6 +51,9 @@ module.exports = {
         '70' : '70px',
         '90' : '90px',
         '100' : '100px',
+        '40rem' : '40rem',
+        '5.5' : '5.5rem',
+        
         
       },
 
@@ -85,8 +90,13 @@ module.exports = {
 
       },
 
+     
+
 
     },
+
+    
+
   },
   plugins: [],
 }
