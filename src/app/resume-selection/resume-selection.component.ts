@@ -24,6 +24,9 @@ export class ResumeSelectionComponent {
     this.router.navigate(['/'])
   }
 
+  navigateToExperiencePage(){
+    this.router.navigateByUrl('/experience')
+  }
 
 
   public minZoom = 0.33;

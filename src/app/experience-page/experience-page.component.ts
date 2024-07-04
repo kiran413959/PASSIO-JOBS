@@ -22,7 +22,9 @@ export class ExperiencePageComponent {
 
   }
 
-
+  navigateToQandA(){
+    this.router.navigateByUrl("/QandA")
+  }
 
 
 }

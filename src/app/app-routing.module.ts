@@ -5,6 +5,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ResumeSelectionComponent } from './resume-selection/resume-selection.component';
 import { ExperiencePageComponent } from './experience-page/experience-page.component';
+import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,9 @@ const routes: Routes = [
   },
   {
     path:'experience', component:ExperiencePageComponent
+  },
+  {
+    path:'QandA', component:QAndAPageComponent
   }
 ];
 
