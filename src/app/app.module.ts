@@ -19,6 +19,7 @@ import { SharedModule } from './shared/shared.module';
 import { ExperiencePageComponent } from './experience-page/experience-page.component';
 import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 import { CommonModule } from '@angular/common';
+import { ApplicationReviewComponent } from './application-review/application-review.component';
 
 
 
@@ -38,6 +39,7 @@ import { CommonModule } from '@angular/common';
     SignupComponent,
     ExperiencePageComponent,
     QAndAPageComponent,
+    ApplicationReviewComponent,
     
   ],
   imports: [

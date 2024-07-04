@@ -7,6 +7,18 @@ import { Router } from '@angular/router';
   styleUrls: ['./q-and-a-page.component.css']
 })
 export class QAndAPageComponent {
+educationList= [
+  {education:'none'},
+  {education:'high school'},
+  {education:'Diploma'},
+  {education:'college'},
+  {education:'masters'},
+  {education:'phd'},
+  {education:'doctorate'},
+  {education:'other'},
+
+
+]
 
 
   constructor (private router:Router){}
