@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PageViewModeType, ScrollModeType,pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
+import { PageViewModeType, ScrollModeType } from 'ngx-extended-pdf-viewer';
 import { Router } from '@angular/router';
 
 
@@ -14,6 +14,15 @@ import { Router } from '@angular/router';
 
 })
 export class ResumeSelectionComponent {
+  
+  constructor (private router:Router){}
+
+    
+  navigateToHome(){
+    console.log('start');
+    
+    this.router.navigate(['/'])
+  }
 
 
 
@@ -33,11 +42,6 @@ export class ResumeSelectionComponent {
 
 
 
-  constructor (private router:Router){}
-  
-  navigateTohome(){
-    this.router.navigateByUrl('')
-  }
 
 
 

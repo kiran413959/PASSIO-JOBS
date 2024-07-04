@@ -14,7 +14,7 @@ export class ExperiencePageComponent {
   constructor (private router:Router){}
   
   navigateTohome(){
-    this.router.navigateByUrl('')
+    this.router.navigateByUrl("/")
 
   }
   navigateToresumeSelection(){

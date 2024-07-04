@@ -11,16 +11,16 @@ const routes: Routes = [
     path: '', component: HomePageComponent
   },
   {
-    path:'/login', component:LoginComponent
+    path:'login', component:LoginComponent
   },
   {
-    path:'/signup', component:SignupComponent
+    path:'signup', component:SignupComponent
   },
   {
-    path:'/resume_selection', component:ResumeSelectionComponent
+    path:'resume_selection', component:ResumeSelectionComponent
   },
   {
-    path:'/experience', component:ExperiencePageComponent
+    path:'experience', component:ExperiencePageComponent
   }
 ];
 
