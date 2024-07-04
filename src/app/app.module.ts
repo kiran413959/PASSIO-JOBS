@@ -17,6 +17,7 @@ import { SignupComponent } from './signup/signup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SharedModule } from './shared/shared.module';
 import { ExperiencePageComponent } from './experience-page/experience-page.component';
+import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 
 
 
@@ -35,6 +36,7 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
     SiderComponent,
     SignupComponent,
     ExperiencePageComponent,
+    QAndAPageComponent,
     
   ],
   imports: [

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { PageViewModeType, ScrollModeType,pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
-
+import { Router } from '@angular/router';
 
 
 
@@ -15,6 +15,8 @@ import { PageViewModeType, ScrollModeType,pdfDefaultOptions } from 'ngx-extended
 })
 export class ResumeSelectionComponent {
 
+
+
   public minZoom = 0.33;
   public maxZoom = 40;
 
@@ -28,5 +30,27 @@ export class ResumeSelectionComponent {
   public page = 0;
 
   public pageLabel!: string;
+
+
+
+  constructor (private router:Router){}
+  
+  navigateTohome(){
+    this.router.navigateByUrl('')
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   
 }
