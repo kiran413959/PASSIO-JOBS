@@ -7,37 +7,37 @@
             <section id="signup_section" class="tw-w-1/2 tw-h-full tw-flex tw-flex-col tw-py-3 tw-justify-center tw-items-center tw-border-r-1.7 tw-border-solid tw-border-rightColor  " >
 
 
-                <form action="" method="post" class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-p-3 tw-flex-col tw-gap-5  ">
+                <form action="" [formGroup]="signupform"  (ngSubmit)="submitsignup()" class="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-p-3 tw-flex-col tw-gap-5  ">
 
 
                     <label for="name"  class="tw-w-80perc tw-flex tw-flex-col tw-justify-center tw-gap-1 tw-text-xs14 tw-font-semibold tw-font-Arial  ">Name
 
-                        <input type="text" id="name" name="name"  class="tw-w-full tw-h-3  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0   "  required>
+                        <input type="text" id="name" name="Username" formControlName="Username"   class="tw-w-full tw-h-3  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0   "  required>
 
                     </label>
 
 
                     <label for="email"  class="tw-w-80perc tw-flex tw-flex-col tw-justify-center tw-gap-1 tw-text-xs14 tw-font-semibold tw-font-Arial " >Email
 
-                        <input type="email" id="email" name="email"  class="tw-w-full tw-h-22  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0   "  required>
+                        <input type="email" id="email" name="Useremail" formControlName="Useremail"  class="tw-w-full tw-h-22  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0   "  required>
 
                     </label>
 
                     <label for="mobile"  class="tw-w-80perc tw-flex tw-flex-col tw-justify-center tw-gap-1 tw-text-xs14 tw-font-semibold tw-font-Arial  " >Mobile Number
                     
-                        <input type="tel" id="mobile" name="mobile"  class="tw-w-full h-22  tw-border-b-1.5  tw-border-b-input_border   tw-boder-b border-solid  tw-bg-input_bg  tw-p-0 "  required>
+                        <input type="tel" id="mobile" name="mobile" formControlName="mobile"  class="tw-w-full h-22  tw-border-b-1.5  tw-border-b-input_border   tw-boder-b border-solid  tw-bg-input_bg  tw-p-0 "  required>
                     
                     </label>
                     
                     <label for="password"  class="tw-w-80perc tw-flex tw-flex-col tw-justify-center tw-gap-1 tw-text-xs14 tw-font-semibold tw-font-Arial  " >Password
                     
-                        <input type="password" id="password" name="password"  class="tw-w-full tw-h-22  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0"  required>
+                        <input type="password" id="password" name="password" formControlName="password"  class="tw-w-full tw-h-22  tw-border-b-1.5  tw-border-b-input_border  tw-border-solid  tw-bg-input_bg  tw-p-0"  required>
                     
                     </label>
                     
                     <label for="Confirm_Password"  class="tw-w-80perc tw-flex tw-flex-col tw-justify-center tw-gap-1 tw-text-xs14 tw-font-semibold tw-font-Arial  " >Confirm Password
                     
-                        <input type="password" id="Confirm_Password" name="Confirm_Password"  class="tw-w-full h-22  tw-border-b-1.5  tw-border-b-input_border   tw-border-solid  tw-bg-input_bg  tw-p-0  "  required>
+                        <input type="password" id="Confirm_Password" name="Confirm_Password" formControlName="Confirm_Password"  class="tw-w-full h-22  tw-border-b-1.5  tw-border-b-input_border   tw-border-solid  tw-bg-input_bg  tw-p-0  "  required>
                     
                     </label>
 

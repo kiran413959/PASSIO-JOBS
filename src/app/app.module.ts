@@ -3,7 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { NgxExtendedPdfViewerModule, pdfDefaultOptions } from 'ngx-extended-pdf-viewer';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
-
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +52,10 @@ import { ApplicationReviewComponent } from './application-review/application-rev
     MatProgressBarModule,
     SharedModule,
     NgxExtendedPdfViewerModule,
-    CommonModule
+    CommonModule,
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
    
     
   ],
