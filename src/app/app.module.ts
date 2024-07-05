@@ -5,6 +5,7 @@ import { NgxExtendedPdfViewerModule, pdfDefaultOptions } from 'ngx-extended-pdf-
 import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -55,7 +56,10 @@ import { ApplicationReviewComponent } from './application-review/application-rev
     CommonModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    [SweetAlert2Module.forRoot()],
+    [SweetAlert2Module],
+    
    
     
   ],

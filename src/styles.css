@@ -1,16 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
 
 
-
 @font-face{
     font-family: 'Dune Rise';
     src: url('../src/assets/Fonts/Dune_Rise.otf')format('otf');
     src: url('../src/assets/Fonts/Dune_Rise.ttf')format('ttf');
     font-weight: normal;
     font-style: normal;
-   
+    
 }
 
+@import "node_modules/sweetalert2/dist/sweetalert2.min.css";
 
 @tailwind base;
 @tailwind components;
