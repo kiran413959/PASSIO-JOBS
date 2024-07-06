@@ -18,7 +18,7 @@ export class SignupComponent implements OnInit {
 
   signupform!: FormGroup;
   inputData:any=[]
-  UserType : string | null = null;
+  UserType:string | null= null 
 
 
   constructor (
@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
               private http:HttpClientModule,
   ) {}
 
-
+ 
   
   ngOnInit(): void {
 
@@ -41,6 +41,8 @@ export class SignupComponent implements OnInit {
       }
      
     })
+
+    
 
     if(this.UserType == 'Jobseeker'){
       
@@ -70,6 +72,7 @@ export class SignupComponent implements OnInit {
         Confirm_Password:['',Validators.required]
         })
 
+        // this.submitsignup()
 
 
     }else if(this.UserType === 'Employer'){ 
@@ -105,6 +108,7 @@ export class SignupComponent implements OnInit {
         })
 
 
+        // this.submitsignup()
 
 
 
@@ -112,14 +116,12 @@ export class SignupComponent implements OnInit {
       console.log('Invalid Usertype');
       this.router.navigateByUrl("/login")
     }
-
-
-   
+    
    
   }
 
   submitsignup(){
-    this.authservice.signup(this.signupform.value).subscribe({
+    this.authservice.signup(this.signupform.value, this.UserType).subscribe({
       next:(data)=>{
       console.log(data);
       this.router.navigate(['/login']);
@@ -129,9 +131,12 @@ export class SignupComponent implements OnInit {
       }
 })
   }
+
+  
   
   navigateTologin(){
     this.router.navigateByUrl("/login")
   }
 
 }
+

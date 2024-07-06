@@ -14,8 +14,10 @@ export class AuthService {
 
   baseUrl = 'http://localhost:4201'
 
-  signup(data:any){
-    return this.http.post(`${this.baseUrl}/signup`, data)
+  signup(data:any, Usertype: string | null){
+    console.log(data);
+    
+    return this.http.post(`${this.baseUrl}/signup/${Usertype}`, data)
   }
   login (data: any) {
     return this.http.post(`${this.baseUrl}/login`, data)
