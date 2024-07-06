@@ -6,6 +6,10 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +26,7 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
 import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 import { CommonModule } from '@angular/common';
 import { ApplicationReviewComponent } from './application-review/application-review.component';
+
 
 
 
@@ -58,8 +63,7 @@ import { ApplicationReviewComponent } from './application-review/application-rev
     HttpClientModule,
     ReactiveFormsModule,
     [SweetAlert2Module.forRoot()],
-    [SweetAlert2Module],
-    
+    FontAwesomeModule
    
     
   ],

@@ -1,10 +1,7 @@
 import { NgModule } from "@angular/core";
 import { HeaderComponent } from "./componets/header/header.component";
-// import { HomePageComponent } from "../home-page/home-page.component";
-// import { SignupComponent } from "../signup/signup.component";
-// import { LoginComponent } from "../login/login.component";
-// import { ResumeSelectionComponent } from "../resume-selection/resume-selection.component";
-// import { ExperiencePageComponent } from "../experience-page/experience-page.component";
+import { ReactiveFormsModule } from "@angular/forms";
+
 
 
 
@@ -13,21 +10,17 @@ import { HeaderComponent } from "./componets/header/header.component";
 @NgModule({
     declarations: [
         HeaderComponent,
-        // HomePageComponent,
-        // SignupComponent,
-        // LoginComponent,
-        // ResumeSelectionComponent,
-        // ExperiencePageComponent
-
+        
         ],
+        imports: [
+            ReactiveFormsModule,
+            ],
+        
+
         exports:[
             HeaderComponent,
-            // HomePageComponent,
-            // SignupComponent,
-            // LoginComponent,
-            // ResumeSelectionComponent,
-            // ExperiencePageComponent
-            
+            ReactiveFormsModule,
+        
         ]
 })
 
