@@ -34,7 +34,9 @@ export class LoginComponent implements OnInit {
       next: (data: any) => {
         localStorage.setItem('token', data.token);
         console.log(data);
-
+        const Token = localStorage.getItem('token')
+        console.log(Token);
+        
         this.router.navigate(['/home']);
       },
       error: (error) => {
@@ -65,19 +67,19 @@ export class LoginComponent implements OnInit {
         try {
           Usertype = 'Jobseeker';
 
-          this.router.navigate([`/signup/User:${Usertype}`]);
+          this.router.navigate([`/signup/${Usertype}`]);
         } catch (error) {
           console.log(error);
         }
       } else {
         try {
           Usertype = 'Employer';
-          this.router.navigate([`/signup/User:${Usertype}`]);
+          this.router.navigate([`/signup/${Usertype}`]);
         } catch (error) {
           console.log(error);
         }
       }
-      // console.log(`User:${Usertype}`);
+      console.log(`User:${Usertype}`);
 
 
     });

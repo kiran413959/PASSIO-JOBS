@@ -64,8 +64,6 @@ import { ApplicationReviewComponent } from './application-review/application-rev
     ReactiveFormsModule,
     [SweetAlert2Module.forRoot()],
     FontAwesomeModule
-   
-    
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -25,7 +25,7 @@ export class SignupComponent implements OnInit {
               private router:Router,
               private activatedRoute: ActivatedRoute,
               private formBuilder:FormBuilder,
-              private formgroup:FormGroup,
+              // private formgroup:FormGroup,
               private authservice:AuthService,
               private http:HttpClientModule,
   ) {}
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
 
     this.activatedRoute.paramMap.subscribe({
       next: (params) => {
-        this.UserType = params.get('User');
+        this.UserType = params.get('Usertype');
         console.log('Usertype:', this.UserType);
       }
      
@@ -46,9 +46,9 @@ export class SignupComponent implements OnInit {
       
       let Data=[
         
-        {for:'name',label:'Name',type:'text',id:'name', name:'Username',formControlName:'Username',require:true },
+        {for:'name',label:'Name',type:'text',id:'name', name:'CandidateName',formControlName:'CandidateName',require:true },
 
-        {for:'email',label:'Email',type:'email',id:'email', name:'Useremail',formControlName:'Useremail',require:true },
+        {for:'email',label:'Email',type:'email',id:'email', name:'CandidateEmail',formControlName:'CandidateEmail',require:true },
 
         {for:'mobile',label:'Mobile Number',type:'tel',id:'mobile', name:'mobile',formControlName:'mobile',require:true },
 
@@ -63,8 +63,8 @@ export class SignupComponent implements OnInit {
 
 
       this.signupform=this.formBuilder.group({
-        Username:['',Validators.required],
-        Useremail:['',Validators.required],
+        CandidateName:['',Validators.required],
+        CandidateEmail:['',Validators.required],
         mobile:['',Validators.required],
         password:['',Validators.required],
         Confirm_Password:['',Validators.required]
@@ -77,13 +77,13 @@ export class SignupComponent implements OnInit {
 
        const Data = [
         
-        {for:'Company_name',label:'Company Name',type:'text',id:'Company_name', name:'Username',formControlName:'Username', require:true },
+        {for:'Company_name',label:'Company Name',type:'text',id:'Company_name', name:'CompanyName',formControlName:'CompanyName', require:true },
 
-        {for:'email',label:'Company Email',type:'email',id:'Company_email', name:'Useremail',formControlName:'Useremail',require:true },
+        {for:'email',label:'Company Email',type:'email',id:'Company_email', name:'CompanyEmail',formControlName:'CompanyEmail',require:true },
 
         {for:'mobile',label:'Mobile Number',type:'tel',id:'mobile', name:'mobile',formControlName:'mobile',require:true },
 
-        {for:'location',label:'Location',type:'text',id:'location', name:'location',formControlName:'location',require:true },
+        {for:'location',label:'Location',type:'text',id:'location', name:'CompanyLocation',formControlName:'CompanyLocation',require:true },
 
         {for:'password',label:'Password',type:'password',id:'password', name:'password',formControlName:'password',require:true },
 
@@ -96,10 +96,10 @@ export class SignupComponent implements OnInit {
 
 
       this.signupform=this.formBuilder.group({
-        Username:['',Validators.required],
-        Useremail:['',Validators.required],
+        CompanyName:['',Validators.required],
+        CompanyEmail:['',Validators.required],
         mobile:['',Validators.required],
-        location:['',Validators.required],
+        CompanyLocation:['',Validators.required],
         password:['',Validators.required],
         Confirm_Password:['',Validators.required]
         })
