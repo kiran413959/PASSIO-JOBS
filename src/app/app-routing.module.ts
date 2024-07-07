@@ -10,7 +10,15 @@ import { ApplicationReviewComponent } from './application-review/application-rev
 
 const routes: Routes = [
   {
-    path: '', component: HomePageComponent
+    path:'', component:HomePageComponent,
+
+    children:[
+      {
+        path:'home', component:HomePageComponent
+      },
+      
+    ]
+    
   },
 
   {

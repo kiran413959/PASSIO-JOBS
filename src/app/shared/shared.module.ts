@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { HeaderComponent } from "./componets/header/header.component";
 import { ReactiveFormsModule } from "@angular/forms";
+import { CommonModule } from "@angular/common";
 
 
 
@@ -20,10 +21,12 @@ import { ReactiveFormsModule } from "@angular/forms";
         exports:[
             HeaderComponent,
             ReactiveFormsModule,
+            CommonModule,
         
         ]
 })
 
 export class SharedModule{
+  [x: string]: any;
     
 }

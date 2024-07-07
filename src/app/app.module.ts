@@ -10,12 +10,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ContentComponent } from './content/content.component';
 
-import { HomePageComponent } from './home-page/home-page.component';
+import { HomePageComponent} from './home-page/home-page.component';
 import { LoginComponent } from './login/login.component';
 import { ResumeSelectionComponent } from './resume-selection/resume-selection.component';
 import { SiderComponent } from './sider/sider.component';
@@ -26,6 +25,7 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
 import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 import { CommonModule } from '@angular/common';
 import { ApplicationReviewComponent } from './application-review/application-review.component';
+import { HeaderComponent } from './shared/componets/header/header.component';
 
 
 
@@ -63,9 +63,9 @@ import { ApplicationReviewComponent } from './application-review/application-rev
     HttpClientModule,
     ReactiveFormsModule,
     [SweetAlert2Module.forRoot()],
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
-  providers: [],
+  providers: [SharedModule,HeaderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
