@@ -19,10 +19,8 @@ const routes: Routes = [
     children:[
       {
         path:'home', component:HomePageComponent
-      },
-      {
-        path:'content',component:ContentComponent
       }
+     
       
     ]
     

@@ -7,28 +7,18 @@
             <div  class="left-side tw-w-1/3 tw-h-lvh   tw-p-5 tw-flex tw-flex-col   tw-items-center  tw-justify-start   tw-overflow-y-auto no-scrollbar   tw-rounded-lg  tw-gap-5  ">
                 
                 
-                <app-sider *ngFor="let list of Data"  [Data]="list" routerLink="/content" class="tw-w-full tw-flex  tw-px-3  tw-border-solid tw-border-1.5   tw-shadow-a1 tw-border-slate-200 tw-rounded-lg"  ></app-sider>
+                <app-sider   [Data]="Data"  (itemselected)="OnItemSelected($event)"  class="tw-w-full tw-flex tw-flex-col tw-gap-6" ></app-sider>
     
             </div>
             
-            <div class="right-side tw-w-1/2 tw-h-full ">
-                <app-content  [contentData]="Data" class="tw-w-5/6 tw-h-auto tw-flex tw-border-solid   tw-shadow-a1 tw-border-slate-800  tw-overflow-hidden tw-rounded-lg" ></app-content>
+            <div class="right-side tw-w-1/2 tw-h-lvh tw-flex tw-flex-col tw-justify-start tw-p-5 tw-items-center tw-overflow-y-auto no-scrollbar  tw-rounded-lg  tw-gap-5">
+                <app-content  [contentData]="SelectedItem" class="tw-w-5/6  tw-flex  tw-rounded-lg    tw-shadow-a1 tw-border-slate-800   " ></app-content>
     
                
     
             </div>
         </main>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
         
     </div>
     

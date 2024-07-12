@@ -1,18 +1,18 @@
-<main class="tw-w-full  tw-flex tw-gap-8 tw-flex-col tw-p-5 ">
+<main   *ngIf="contentData"  class="tw-w-full tw-border-1.5 tw-border-solid tw-border-slate-200 tw-overflow-y-hidden no-scrollbar tw-flex tw-gap-8 tw-flex-col tw-p-5 tw-rounded-lg ">
     <div id="head" class="tw-w-full tw-h-1/4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-p-5 tw-gap-10 tw-pt-20"  >
         <div class="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center ">
             <h1 class="tw-text-xl tw-font-bold">
-                 <span class="tw-text-xl tw-font-bold tw-text-black">{{'jobTitle'}}</span>   
+                 <span class="tw-text-xl tw-font-bold tw-text-black">{{contentData.position}}</span>   
                  </h1>
 
                  <h2>
-                    <span class="tw-text-lg tw-font-normal tw-text-black">{{'level X'}}</span> <br>
-                    <span class="tw-text-base tw-font-normal tw-text-black">{{'calicut'}}</span>
+                    <span class="tw-text-lg tw-font-normal tw-text-black">{{contentData.Companyname}}</span> <br>
+                    <span class="tw-text-base tw-font-normal tw-text-black">{{contentData.CompanyLocation}}</span>
 
                  </h2>
 
                  <h2>
-                    <span class="tw-text-base tw-font-normal tw-text-black">₹{{'8,866.04'}} - ₹{{'15,000.00'}} per {{'month/year'}}</span>
+                    <span class="tw-text-base tw-font-normal tw-text-black">₹{{contentData.salaryfrom}} - ₹{{contentData.salaryto}} per {{contentData.per}}</span>
 
                  </h2>
 
@@ -34,39 +34,60 @@
     <div id="body " class="tw-w-full tw-h-3/4 tw-px-5">
 
         <div class="job_details tw-w-full tw-flex tw-flex-col tw-gap-1   ">
-            <div class="payment tw-px-4">
-                <div class="head tw-w-full tw-flex tw-item-center tw-gap-3 ">
-                    <i class="fa-solid fa-money-bill flex items-center" ></i>
+            <div class="payment tw-px-2">
+                <div class="head tw-w-full tw-flex  tw-item-center tw-gap-3 ">
+                    <i class="fa-solid fa-money-bill flex items-center tw-relative tw-top-1" ></i>
                     <h1 class="tw-text-base tw-font-semibold tw-text-black">Pay</h1>
                 </div>
                 <div class="salary_per_month tw-relative tw-left-12">
-                    <h1 class="tw-text-sm tw-font-semibold tw-text-black">₹8,866.04 - ₹15,000.00</h1>
+                    <h1 class="tw-text-sm tw-font-semibold tw-text-black">₹{{contentData.salaryfrom}} - ₹{{contentData.salaryto}}</h1>
                 </div>
             </div>
-            <div class="job-type tw-px-4">
+            <div class="job-type tw-px-2">
                 <div class="head  tw-w-full tw-flex tw-item-center tw-gap-3">
-                    <i class="fa-solid fa-briefcase flex items-center"></i>
-                    <h1 class="tw-text-base tw-font-semibold tw-text-black">job type</h1>
+                    <i class="fa-solid fa-briefcase flex items-center tw-relative tw-top-1"></i>
+                    <h1 class="tw-text-base tw-font-semibold tw-text-black ">job type</h1>
                 </div>
-                <div class="type-of-job relative left-12">
-                    <h1 class="tw-text-sm   tw-font-semibold tw-text-black">full-time</h1>
+                <div class="type-of-job tw-relative tw-left-14">
+                    <h1 class="tw-text-sm   tw-font-semibold tw-text-black">{{contentData.jobtype}}</h1>
                 </div>
             </div>
 
 
-            <div class="job-location tw-w-full tw-flex tw-item-center tw-gap-3 tw-px-4">
+            <div class="job-location tw-w-full tw-flex tw-item-center tw-gap-3 tw-px-2">
                 <i class="fa-solid fa-location-dot"></i>
                 <h3 class="tw-text-sm   tw-font-semibold tw-text-black" >Calicut,Kerala</h3>
             </div>
 
-            <div class="job-description">
+            <div class="job-description tw-flex tw-flex-col tw-gap-4">
                 <ul>
-                    <li>Experience: 1-2 years</li>
-                    <li>Job Type: Full Time</li>
-                    <li>Job Role: Software Developer</li>
-                    <li>Job Category: IT Software</li>
+                    <li>Experience: {{contentData.Experience}}</li>
+                    <li>Job Type: {{contentData.jobtype}}</li>
+                    <!-- <li>Job Role: Software Developer</li> -->
+                    <li>Job Category: {{contentData.jobCategory}}</li>
             
                 </ul>
+
+                <div class="about_job tw-flex tw-flex-col tw-gap-2">
+                    <h3 class="tw-font-bold tw-text-base">About the job</h3>
+                    <p>
+                        We are looking for punctual candidates with good time management skills for the position of driver. Drivers are responsible for delivering packages to clients in a timely manner, working on nights and weekends and ensuring that vehicles are always ready for use, among other duties.
+                        Drivers will need to lift heavy objects and load them into their vehicles, requiring upper body strength and physical stamina
+                    </p>
+                </div>
+
+                <div class="candidate_Requirements">
+                    <h3 class="tw-font-bold tw-text-base">Candidate Requirements</h3>
+                    <ul>
+                        <li>5+ years of driving experience</li>
+                        <li>Must be a resident of Kerala</li>
+                        <li>Must be a good driver</li>
+                        <li>Must have good communication skills</li>
+                        <li>Must have a strong drive</li>
+                        <li>Must have good time management skills</li>
+                    </ul>
+                </div>
+
             </div>
 
 

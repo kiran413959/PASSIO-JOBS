@@ -8,20 +8,27 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   styleUrls: ['./sider.component.css']
 })
 export class SiderComponent {
-@Input() Data:any
-  
+// @Input() Data:any
+// @Input() Jobid:number | null = null
+//   @Output() Jobid:number | null = null 
+//   constructor() { }
+//   senddata(JobId:number){
+//     console.log(JobId);
+//     this.Jobid = JobId;
 
-  // ShowContent(){
-  //   this.contents.show()
     
-  // }
+//   }
 
 
-  @Output() contentData = new EventEmitter()
 
-  senddata(){
-    this.contentData.emit(this.Data.list)
+@Input() Data!:any[]
+@Output() itemselected = new EventEmitter<any>()
+
+SelectedItem(item: any) {
+    this.itemselected.emit(item);
   }
+
+   
 
 
 }

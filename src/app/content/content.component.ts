@@ -13,10 +13,10 @@ import { SiderComponent } from '../sider/sider.component';
   styleUrls: ['./content.component.css']
 })
 export class ContentComponent  {
-
-
-  @Input() contentData:any=''
   
+
+  @Input() contentData:any
+ 
   
   IsloggedIn : boolean = false
   constructor(
