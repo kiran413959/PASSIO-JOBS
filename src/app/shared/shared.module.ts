@@ -14,6 +14,7 @@ import { CommonModule } from "@angular/common";
         
         ],
         imports: [
+            CommonModule,  // import CommonModule first
             ReactiveFormsModule,
             ],
         

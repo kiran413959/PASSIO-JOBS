@@ -23,7 +23,7 @@
     </div>
     
     
-    <div class="header-right tw-w-1/3 tw-flex tw-justify-end tw-items-end ">
+    <div class="header-right tw-w-1/3 tw-flex tw-justify-evenly tw-items-center tw-p-4 tw-gap-4 ">
         <div id="user-profile" class="tw-w-full tw-flex tw-justify-end tw-items-center tw-gap-6  tw-relative tw-right-5 ">
             <div class="notification  tw-text-2xl">
                 <span></span>
@@ -35,15 +35,15 @@
                 <i class="fa-solid fa-envelope"></i>
             </div>
     
-            <div id="profile-pic"   class="profile tw-hidden  tw-w-12 tw-h-12 tw-border-solid tw-border-black tw-border-2 tw-rounded-full">
-    
+            
+        </div>
+        <div  class="tw-relative tw-right-1" >
+            <div id="profile-pic"   class="profile tw-block  tw-w-12 tw-h-12 tw-border-solid tw-border-black tw-border-2 tw-rounded-full"  *ngIf="isLoggedIn">
+                    <img src="" alt="" srcset=""   >
             </div>
-            <div  id="loginbutton"  class="tw-hidden">
-
-                <button type="button" class="  tw-w-20 tw-h-10 tw-text-emerald-50 tw-bg-blue-900 tw-border-solid tw-border-gray-400 tw-border-2 tw-rounded-md" (click)="navigateTologin()" >Login
+                <button type="button" id="loginbutton" class=" tw-block tw-w-20 tw-h-10 tw-text-emerald-50 tw-bg-blue-900 tw-border-solid tw-border-gray-400 tw-border-2 tw-rounded-md" (click)="navigateTologin()" *ngIf="!isLoggedIn" >Login
                 </button>
 
-            </div>
         </div>
     
     

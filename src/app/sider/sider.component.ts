@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+
+
 
 @Component({
   selector: 'app-sider',
@@ -6,5 +8,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./sider.component.css']
 })
 export class SiderComponent {
+@Input() Data:any
+  
+
+  // ShowContent(){
+  //   this.contents.show()
+    
+  // }
+
+
+  @Output() contentData = new EventEmitter()
+
+  senddata(){
+    this.contentData.emit(this.Data.list)
+  }
+
 
 }

@@ -56,7 +56,7 @@ export class LoginComponent implements OnInit {
       cancelButtonColor: '#1e3a8a',
       confirmButtonColor: '#1e3a8a',
       confirmButtonText: `<span id="Employee"  class="material-symbols-outlined  tw-relative tw-top-1  ">work</span> Employee`,
-      cancelButtonText: `<span id="Employee"  class="material-symbols-outlined  tw-relative tw-top-1 ">apartment</span> Employer`,
+      cancelButtonText: `<span id="Employer"  class="material-symbols-outlined  tw-relative tw-top-1 ">apartment</span> Employer`,
       reverseButtons: true,
     }).then((result) => {
       let Usertype: string = ''
@@ -64,6 +64,8 @@ export class LoginComponent implements OnInit {
       console.log(result);
 
       if (result.isConfirmed) {
+        console.log(result);
+        
         try {
           Usertype = 'Jobseeker';
 
@@ -71,13 +73,16 @@ export class LoginComponent implements OnInit {
         } catch (error) {
           console.log(error);
         }
-      } else {
+      } else if(result.isDismissed && result.dismiss==Swal.DismissReason.cancel) {
         try {
           Usertype = 'Employer';
           this.router.navigate([`/signup/${Usertype}`]);
         } catch (error) {
           console.log(error);
         }
+      }else{
+        console.log('Invalid Usertype');
+        this.router.navigateByUrl("/login")
       }
       console.log(`User:${Usertype}`);
 

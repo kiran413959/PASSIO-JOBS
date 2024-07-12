@@ -65,7 +65,7 @@ import { HeaderComponent } from './shared/componets/header/header.component';
     [SweetAlert2Module.forRoot()],
     FontAwesomeModule,
   ],
-  providers: [SharedModule,HeaderComponent],
+  providers: [SharedModule,HeaderComponent,SiderComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
