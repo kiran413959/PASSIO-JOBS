@@ -28,6 +28,6 @@ export class AuthService {
     console.log(data);
     localStorage.getItem(data.token)
     return this.http.post(`${this.baseUrl}/login`, data)
-}
+  }
 }
 

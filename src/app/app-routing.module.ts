@@ -8,6 +8,9 @@ import { ExperiencePageComponent } from './experience-page/experience-page.compo
 import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 import { ApplicationReviewComponent } from './application-review/application-review.component';
 import { ContentComponent } from './content/content.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -42,6 +45,15 @@ const routes: Routes = [
   },
   {
     path:'application_review', component:ApplicationReviewComponent
+  },
+  {
+    path:'inbox',component:InboxComponent
+  },
+  {
+    path:'notification',component:NotificationsComponent
+  },
+  {
+    path:'profile',component:ProfileComponent
   }
 ];
 

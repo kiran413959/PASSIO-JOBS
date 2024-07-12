@@ -26,6 +26,10 @@ import { QAndAPageComponent } from './q-and-a-page/q-and-a-page.component';
 import { CommonModule } from '@angular/common';
 import { ApplicationReviewComponent } from './application-review/application-review.component';
 import { HeaderComponent } from './shared/componets/header/header.component';
+import { InboxComponent } from './inbox/inbox.component';
+import { MessageComponent } from './inbox/message/message.component';
+import { NotificationsComponent } from './notifications/notifications.component';
+import { ProfileComponent } from './profile/profile.component';
 
 
 
@@ -47,6 +51,10 @@ import { HeaderComponent } from './shared/componets/header/header.component';
     ExperiencePageComponent,
     QAndAPageComponent,
     ApplicationReviewComponent,
+    InboxComponent,
+    MessageComponent,
+    NotificationsComponent,
+    ProfileComponent,
     
   ],
   imports: [
