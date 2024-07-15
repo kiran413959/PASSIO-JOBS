@@ -25,14 +25,14 @@
     
     <div class="header-right tw-w-1/3 tw-flex tw-justify-evenly tw-items-center tw-p-4 tw-gap-4 ">
         <div id="user-profile" class="tw-w-full tw-flex tw-justify-end tw-items-center tw-gap-6  tw-relative tw-right-5 ">
-            <div class="notification  tw-text-2xl tw-w-fit">
+            <div class="notification  tw-text-2xl tw-w-fit tw-cursor-pointer" (click)="navigateToNotification()" >
                 <span class="tw-w-0.85 tw-h-0.85 tw-absolute  tw-flex tw-justify-center tw-items-center tw-rounded-2xl tw-bg-red-600">
                     <p class="tw-text-white tw-text-xs">1</p>
                 </span>
                 <i class="fa-solid fa-bell"></i>
             </div>
     
-            <div class="mails tw-text-2xl tw-w-fit ">
+            <div class="mails tw-text-2xl tw-w-fit tw-cursor-pointer" (click)="navigateToInbox()">
                 <span class="tw-w-0.85 tw-h-0.85 tw-absolute tw-right-0.85  tw-flex  tw-justify-center tw-items-center tw-rounded-2xl tw-bg-red-600">
                     <p class="tw-text-white  tw-text-xs " >3</p>
                 </span>
@@ -41,7 +41,7 @@
     
             
         </div>
-        <div  class="tw-relative tw-right-1" >
+        <div  class="tw-relative tw-right-1 tw-cursor-pointer" >
             <div id="profile-pic"   class="profile tw-block  tw-w-12 tw-h-12 tw-border-solid tw-border-black tw-border-2 tw-rounded-full"  *ngIf="isLoggedIn">
                     <img src="" alt="" srcset=""   >
             </div>

@@ -21,5 +21,16 @@ export class HeaderComponent implements OnInit {
         navigateTologin(){
           this.router.navigate(['/login']);
         }
+
+        navigateToNotification(){
+          this.router.navigate(['/notification'])
+        }
+
+
+        navigateToInbox(){
+          this.router.navigate(['/inbox'])
+        }
+
+
       }
     
