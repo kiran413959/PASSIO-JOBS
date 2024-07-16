@@ -14,7 +14,7 @@
     </div>
     
     
-    <div class="header-center tw-w-1/3 tw-relative tw-left-20">
+    <div class="header-center tw-w-1/3 tw-relative tw-left-20" title="Search">
         <div id="search-bar" class="tw-w-full tw-p-5 tw-flex">
             <input type="text" placeholder="Search..."  class="tw-w-full tw-h-8  tw-p-3 tw-border-solid tw-border-1.5 tw-border-gray-600  tw-border-opacity-95  tw-rounded " >
             <i class="fa-solid fa-magnifying-glass tw-text-lg tw-text-zinc-600 tw-relative tw-right-7  tw-top-1   "></i>
@@ -23,7 +23,7 @@
     </div>
     
     
-    <div class="header-right tw-w-1/3 tw-flex tw-justify-evenly tw-items-center tw-p-4 tw-gap-4 ">
+    <div class="header-right tw-w-1/3 tw-flex tw-justify-evenly tw-items-center tw-p-4 tw-gap-4 "  title="Notifications">
         <div id="user-profile" class="tw-w-full tw-flex tw-justify-end tw-items-center tw-gap-6  tw-relative tw-right-5 ">
             <div class="notification  tw-text-2xl tw-w-fit tw-cursor-pointer" (click)="navigateToNotification()" >
                 <span class="tw-w-0.85 tw-h-0.85 tw-absolute  tw-flex tw-justify-center tw-items-center tw-rounded-2xl tw-bg-red-600">
@@ -32,7 +32,7 @@
                 <i class="fa-solid fa-bell"></i>
             </div>
     
-            <div class="mails tw-text-2xl tw-w-fit tw-cursor-pointer" (click)="navigateToInbox()">
+            <div class="mails tw-text-2xl tw-w-fit tw-cursor-pointer" (click)="navigateToInbox()" title="Emails">
                 <span class="tw-w-0.85 tw-h-0.85 tw-absolute tw-right-0.85  tw-flex  tw-justify-center tw-items-center tw-rounded-2xl tw-bg-red-600">
                     <p class="tw-text-white  tw-text-xs " >3</p>
                 </span>
@@ -41,7 +41,7 @@
     
             
         </div>
-        <div  class="tw-relative tw-right-1 tw-cursor-pointer" >
+        <div  class="tw-relative tw-right-1 tw-cursor-pointer" title="Profile"  (click)="navigateToProfile()">
             <div id="profile-pic"   class="profile tw-block  tw-w-12 tw-h-12 tw-border-solid tw-border-black tw-border-2 tw-rounded-full"  *ngIf="isLoggedIn">
                     <img src="" alt="" srcset=""   >
             </div>

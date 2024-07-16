@@ -31,6 +31,9 @@ export class HeaderComponent implements OnInit {
           this.router.navigate(['/inbox'])
         }
 
+        navigateToProfile(){
+          this.router.navigate(['/profile'])
+        }
 
       }
     
