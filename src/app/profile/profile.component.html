@@ -23,7 +23,7 @@
 
 
                             <a href="#" class="tw-w-8 tw-h-8 tw-flex tw-justify-center tw-items-center tw-border-solid tw-border-2 tw-border-blue-900 tw-rounded-full tw-text-sm tw-text-blue-900">
-                                <i class="fa-solid fa-phone"></i>
+                                <i class="fa-solid fa-phone "></i>
                             </a>
                             <h5 class=" tw-text-blue-900" >+972-50-1234567</h5>
                             <a href="#" class="tw-w-8 tw-h-8 tw-flex tw-justify-center tw-items-center tw-border-solid tw-border-2 tw-border-blue-900 tw-rounded-full tw-pt-0.5 tw-text-sm tw-text-blue-900">
@@ -41,144 +41,72 @@
                 <section id="profile-info" class="tw-w-full tw-h-fit tw-flex tw-justify-center  tw-gap-2  ">
                    
                     <div class="tw-w-1/6  tw-flex tw-justify-center tw-p-4 tw-items-center tw-shadow-a1 tw-gap-5  tw-h-fit tw-flex-col tw-rounded-md ">
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-bordrer-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase">profile summury</h3>         
+                        <button type="button" *ngFor="let list of data" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-bordrer-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
+                            <i class="fa-solid fa-{{list.icon}}"></i>
+                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase">{{list.title}}</h3>         
                         </button>
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center tw-border-solid tw-border-2 tw-border-blue-900 tw-p-2  ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase  ">skills</h3>         
-                        </button>
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-border-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase">Experience</h3>         
-                        </button>
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-border-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase ">education</h3>         
-                        </button>
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-bord er-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase">personal details</h3>         
-                        </button>
-                        <button type="button" class="tw-w-full tw-flex tw-justify-normal tw-gap-1.5 tw-items-center  tw-bord er-solid tw-border-2 tw-border-blue-900 tw-p-2 ">
-                            <i class="fa-solid fa-briefcase"></i>
-                            <h3 class="tw-text-sm tw-font-medium tw-text-gray-500 tw-uppercase">Links</h3>         
-                        </button>
+                        
 
                        
                     </div>
-                    <div class="tw-w-full  tw-flex tw-justify-center tw-items-center tw-gap-6 tw-px-10 tw-shadow-a1  tw-h-full tw-flex-col tw-py-16">
-                            <div class="profilesummury  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-3">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900">Profile Summury
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
-                                </h2>
-                                <p class="tw-text-base tw-font-medium tw-text-gray-500">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel gravida tellus, at convallis urna. Sed sit amet metus vel nisi faucibus finibus. Sed vel justo eget dolor elementum tristique. Nulla facilisi. Nulla facilisi. Nulla facilisi.</p>
-                            </div>
-                            <div class="skills  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-3">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900"> skills
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
+                    <div  class="tw-w-full  tw-flex tw-justify-center tw-items-center tw-gap-6 tw-px-10 tw-shadow-a1  tw-h-full tw-flex-col tw-py-16">
 
-                                </h2>
-                                <ul class="tw-w-full tw-flex tw-justify-normal tw-items-center tw-gap-3 tw-flex-wrap">
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Frontend Developer
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Backend Developer
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Mobile Developer
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Data Analyst
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Project Manager
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">UX/UI Designer
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Product Manager
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Team Lead
-
-                                    </li>
-                                    <li class="tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Agile Scrum Master
-
-                                    </li>
-
-
+                        <!-- <div class="profile-container"> -->
+                            <div *ngFor="let section of data" class="profile-section  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-3 ">
+                              <h2 class="profile-section-title tw-text-xl tw-font-bold tw-text-blue-900">
+                                {{ section.title }}
+                                <i class="fa-solid fa-pen tw-text-sm tw-cursor-pointer" (click)="openEditor(section)"></i>
+                              </h2>
+                              <p class="profile-section-content  tw-text-base tw-font-medium tw-text-gray-500">{{ section.content }}</p>
+                          
+                              <div *ngIf="section.isOpen" class="editor-container">
+                                <div class="editor-window">
+                                  <p>This is the editor content for {{ section.title }}</p>
+                                  <button (click)="closeEditor(section)">Close Editor</button>
+                                </div>
+                              </div>
+                          
+                              <ul *ngIf="section.title === 'Skills'"   class="tw-w-full tw-flex tw-justify-normal tw-items-center tw-gap-3 tw-flex-wrap" >
+                                <li class="skill-item tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Frontend Developer</li>
+                                <li class="skill-item tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2">Backend Developer</li>
                                 </ul>
+                          
+                              <div *ngIf="section.title === 'Experience'"    class="tw-w-full tw-flex tw-flex-col"  >
+                                <h4 class="experience-heading">{{ section.Expdetails?.designation }}</h4>
+                                <span class="experience-details tw-text-gray-500 tw-font-medium">{{ section.Expdetails?.duration }} - {{ section.Expdetails?.company }}</span>
+                                <p class="experience-description">{{ section.Expdetails?.description }}</p>
+                              </div>
 
-                            </div>
+                              <div *ngIf=" section.title === 'Education'" class="tw-w-full tw-flex tw-flex-col" >
+                                <h4 class="education-heading">{{ section.Edudetails?.degree }}</h4>
+                                <span class="education-details">{{ section.Edudetails?.major }} - {{ section.Edudetails?.duration }}</span>
+                                <p class="education-description">{{ section.Edudetails?.institution }}</p>
+                              </div>
+                          
 
-                            <div class="experience  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-1">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900">Experience
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
-                                </h2>
-                                <div class="tw-w-full tw-flex tw-flex-col">
+                              <div *ngIf=" section.title === 'Projects'" class="tw-w-full tw-flex tw-flex-col" >
+                                <h4 class="projects-heading">{{ section.Projectdetails?.[0]?.title }}</h4>
+                                <p class="projects-description">{{ section.Projectdetails?.[0]?.description }}</p>
+                                <span class="projects-details">{{ section.Projectdetails?.[0]?.technologies }} </span>
+                              </div>
 
-                                <h4 class="designation">Frontend Developer</h4>
-                                    <span class="tw-text-gray-500 tw-font-medium">Feb 2021 - Present</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Company A</span>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel gravida tellus, at convallis urna. Sed sit amet metus vel nisi faucibus finibus. Sed vel justo eget dolor elementum tristique. Nulla facilisi. Nulla facilisi. Nulla facilisi.</p>
-
+                              <div *ngIf="section.title === 'Personal Details'">
+                                <h4>Name: {{ section.detail?.[0]?.title }}</h4>
+                                <span>Email: {{ section.detail?.[0]?.title }}</span>
+                                </div>
+                          
+                              <div *ngIf="section.title === 'Links'">
+                                <h4>Social Media</h4>
+                                <a href="#">Facebook</a>
+                                <a href="#">Instagram</a>
                                 </div>
                             </div>
+                          <!-- </div> -->
+                          
+                          
 
-                            <div class="education  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-1">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900">Education
 
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
-                                </h2>
-                                <div class="tw-w-full tw-flex tw-flex-col">
-
-                                    <h4>Bachelor of Science, Computer Science</h4>
-                                    <span class="tw-text-gray-500 tw-font-medium">October 2018 - December 2021</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">XYZ College</span>
-                                        
-                                </div>     
-                            </div>
-
-                            <div class="personal-details  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-1">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900">Personal-details
-
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
-                                </h2>
-                                <div class="tw-w-full tw-flex tw-flex-col">
-                                    <h4>Name: afish abdulleh</h4>
-                                    <span class="tw-text-gray-500 tw-font-medium">Email: johndoe@example.com</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Phone: +1 123 456 7890</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Address: 123 Main St, City, State, Zip</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Date Of Birth: 26/06/1999</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Gender: Male</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Nationality: American</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Hobbies: Reading, Sports, Cooking</span>
-                                    <span class="tw-text-gray-500 tw-font-medium">Languages: English, Spanish, French</span>
-                                </div>
-
-                            </div>
-
-                            <div class="links  tw-w-full tw-flex tw-flex-col tw-justify-center tw-items-start tw-gap-1">
-                                <h2 class="tw-text-xl tw-font-bold tw-text-blue-900">links
-
-                                    <i class="fa-solid fa-pen tw-text-sm"></i>
-                                </h2>
-                                <div class="tw-w-full tw-flex tw-flex-col">
-                                    <h4>Social Media</h4>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Facebook</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Instagram</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Twitter</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">LinkedIn</a>
-                                    <h4>Other Websites</h4>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Portfolio</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">GitHub</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Resume</a>
-                                    <a href="#" class="tw-text-gray-500 tw-font-medium">Contact</a>
-                                </div>
-
-                            </div>
+                            
 
 
                     </div>
