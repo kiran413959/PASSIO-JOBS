@@ -11,6 +11,7 @@ import { ContentComponent } from './content/content.component';
 import { InboxComponent } from './inbox/inbox.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EmployerHomeComponent } from './employer-side/employer-home/employer-home.component';
 
 const routes: Routes = [
   {
@@ -52,6 +53,9 @@ const routes: Routes = [
   },
   {
     path:'profile',component:ProfileComponent
+  },
+  {
+    path:'employer',component:EmployerHomeComponent
   }
 ];
 

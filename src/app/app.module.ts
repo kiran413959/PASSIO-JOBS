@@ -30,6 +30,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { MessageComponent } from './inbox/message/message.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
+import { EmployerHomeComponent } from './employer-side/employer-home/employer-home.component';
 
 
 
@@ -55,6 +56,7 @@ import { ProfileComponent } from './profile/profile.component';
     MessageComponent,
     NotificationsComponent,
     ProfileComponent,
+    EmployerHomeComponent,
     
   ],
   imports: [

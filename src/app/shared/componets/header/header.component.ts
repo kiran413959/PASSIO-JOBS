@@ -9,6 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+    
+       employee={id:'employee',title1:'Jobs',title2:'Companies'}
+       employer={id:'employer',title1:'Jobs',title2:'Candidates'}
+
+
+
     isLoggedIn: boolean = false;
  
     constructor (private router : Router){}
@@ -16,6 +22,7 @@ export class HeaderComponent implements OnInit {
     ngOnInit() {
       const token = localStorage.getItem('token');
       this.isLoggedIn = token !== null;
+      
     }
      
         navigateTologin(){

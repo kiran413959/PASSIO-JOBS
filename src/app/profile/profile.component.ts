@@ -18,7 +18,14 @@ export class ProfileComponent implements OnInit {
     {
       title: 'Skills',
       icon:'head-side-gear',
-      content: '', // No initial content for skills
+      content:[
+        {skill:'Frontend Developer'},
+        {skill:'Angular'},
+        {skill:'TypeScript'},
+        {skill:'HTML5'},
+        {skill:'CSS3'},
+        {skill:'JavaScript'},
+      ],
       isOpen: false
     },
     {
@@ -107,7 +114,7 @@ export class ProfileComponent implements OnInit {
       title:'links',
       icon:'globe-pointer',
       isOpen:false,
-      detail:[
+      details:[
         {
           title: 'Github',
           link: 'https://github.com/username'
@@ -129,15 +136,35 @@ export class ProfileComponent implements OnInit {
 
   ];
 
+  checkArray(value: any): any {
+    if(Array.isArray(value)) {
+        return value
+    }
+
+    else {
+        return [];
+    }
+  }
+
   ngOnInit() {
     // ...
   }
 
   openEditor(section: any) {
     section.isOpen = true;
+    console.log('hiiiiii');
+    
   }
 
   closeEditor(section: any) {
     section.isOpen = false;
+  }
+
+  addinfo(title:string){
+    switch(title){
+        case 'Skills':
+
+    }
+
   }
 }

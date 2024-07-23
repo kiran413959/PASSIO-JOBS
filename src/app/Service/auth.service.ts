@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { jwtDecode, JwtPayload } from 'jwt-decode';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +20,8 @@ export class AuthService {
 
   }
 
+
+
   signup(data:any, Usertype: string | null){
     console.log(data);
     
@@ -26,6 +29,8 @@ export class AuthService {
   }
   login (data: any) {
     console.log(data);
+    let Usertype=data.Usertype
+    
     localStorage.getItem(data.token)
     return this.http.post(`${this.baseUrl}/login`, data)
   }
