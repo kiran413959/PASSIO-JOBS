@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild, ViewChildren } from '@angular/core';
 
 @Component({
   selector: 'app-profile',
@@ -6,7 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
-  designation:string | undefined
+    designation:string | undefined
+
+    newskill:HTMLElement| null = document.getElementById('skill')
+
+    @ViewChild("skillInput") skillInput!: ElementRef
+
+    @ViewChild("logos") logos!: ElementRef
+
+
+    constructor(private renderer: Renderer2){
+        
+    }
+
+
 
         links=[
             
@@ -304,6 +317,25 @@ export class ProfileComponent implements OnInit {
 
     }
 
+    openlogos(){
+        
+        console.log(this.logos.nativeElement.classList);
+        if(this.logos.nativeElement.classList.contains("tw-hidden")){
+            this.renderer.removeClass(this.logos.nativeElement, "tw-hidden")
+        } else {
+            console.log(1);
+            
+            this.renderer.addClass(this.logos.nativeElement, "tw-hidden")
+        }
+
+    }
+    selectedIcon: string | null = null
+    getIcon(iconName: string){
+        console.log(iconName);
+        this.selectedIcon = iconName
+        
+    }
+
     addinfo(title:string){
 
         switch(title){
@@ -323,7 +355,12 @@ export class ProfileComponent implements OnInit {
                     }
                     if (this.data[1] && Array.isArray(this.data[1].content)) {
 
-                        this.data[1].content.push({ skill: 'New Skill' });
+                            const skillInputValue = this.skillInput.nativeElement.value
+                            //   let newskill= this.newskill?                 
+                            const newObj = {skill:skillInputValue}
+                            
+                            this.data[1].content.push(newObj);
+                            console.log(this.data[1].content);
 
                     } else {
 
@@ -388,13 +425,14 @@ export class ProfileComponent implements OnInit {
                 }
         
             break;
-            case 'Links':
+            case 'links':
 
                 if (this.data && Array.isArray(this.data) && this.data[6]) {
+                    
                         
                     if (this.data[6].details) {
                             
-                        this.data[6].details.push({title: 'New Link', link: 'https://newlink.com'});
+                        this.data[6].details.push({title: 'links', link: 'https://newlink.com'});
                     
                     } else {
 
