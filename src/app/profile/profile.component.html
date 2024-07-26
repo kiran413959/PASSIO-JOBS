@@ -115,7 +115,9 @@
                                     ></i>
                                 </h2>
 
-                                <p class="profile-section-content  tw-text-base tw-font-medium tw-text-gray-500">{{ section.content }}</p>
+                                <p 
+                                    *ngIf="section.title == 'Profile Summary' " 
+                                     class="profile-section-content  tw-text-base tw-font-medium tw-text-gray-500">{{ section.content }}</p>
 
                             <!-- Title,content and edit button Ends -->
                           
@@ -143,7 +145,7 @@
 
                             <!-- Profile summury edit-window ends -->
 
-                            <!-- Skills Esit-window Starts -->
+                            <!-- Skills Edit-window Starts -->
 
                                 <div 
                                     *ngIf="section.title === 'Skills'"  
@@ -354,12 +356,14 @@
                             <!-- Personal Details Edit-window Starts -->
 
                                   <div  
-                                    *ngIf="section.title === 'Personal Details'"  
+                                    *ngIf="section.title === 'Personal Details' && checkArray(section.detail) "  
                                     class="editor-window tw-flex tw-justify-between tw-flex-col tw-items-center tw-p-4 tw-gap-4"
                                 >
                                     <input 
+                                        *ngFor=" let deatails of checkArray(section.detail)"
                                         type="text"   
-                                        placeholder="{{section}}"   
+                                        name="{{deatails.title}}"
+                                        placeholder="{{deatails.title}}"   
                                         class="tw-w-full"
                                     ><br>
                                    
@@ -381,30 +385,12 @@
                                         class="tw-h-[15rem] tw-flex tw-justify-center tw-items-center tw-gap-4 tw-relative tw-right-5"
                                     >
 
-                                        <!-- <input 
-                                            type="text" 
-                                            placeholder="Add new Links..."
-                                            list="link_selection"
-                                        > -->
                                         <div 
                                             id="link_selection" 
                                             class=" tw-relative tw-gap-5 tw-flex tw-w-1/2 tw-p-5"
                                         >
                                        
-                                            <!-- <option 
-                                                *ngFor="let icon of links"
-                                                [value]="icon.icon"
-                                                class="tw-w-full  tw-text-black"
-                                            >
-                                        
-                                            <i class="fa-brands fa-linkedin tw-text-5xl tw-w-9"></i>
-                                            <img src="/src/assets/Images/LOGO_OF_PASSIO-JOBS.png" alt="" srcset="">
-                                            <i class="{{icon.icon}}"></i>
-                                                
-                                            </option> -->
-
-                                             <!-- ><i class="fa-brands fa-{{icon.icon}}"></i></option> -->
-                                             <!-- <div class=" tw-bg-green-800 tw-overflow-auto"> -->
+                                           
                                                 <div 
                                                 
                                                     class=" tw-absolute -tw-left-10 tw-top-0"
@@ -494,8 +480,14 @@
 
                                     <li 
                                         *ngFor="let data of checkArray(section.content)" 
+                                       
                                         class="skill-item tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2 " 
                                     >{{data.skill}}
+                                    <i 
+                                        (click)="removeitem(data.skill)"
+                                        class="fa-solid fa-xmark" 
+                                    ></i>
+
                                     </li>
 
                                 </ul>

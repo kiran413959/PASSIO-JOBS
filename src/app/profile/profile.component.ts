@@ -14,6 +14,8 @@ export class ProfileComponent implements OnInit {
 
     @ViewChild("logos") logos!: ElementRef
 
+    @ViewChild("viewclose") closebutton!: ElementRef
+
 
     constructor(private renderer: Renderer2){
         
@@ -329,6 +331,7 @@ export class ProfileComponent implements OnInit {
         }
 
     }
+
     selectedIcon: string | null = null
     getIcon(iconName: string){
         console.log(iconName);
@@ -460,26 +463,38 @@ export class ProfileComponent implements OnInit {
 
     }
 
-  saveUpdate(title:string){
-    switch(title){
-        case 'Skills':
+    saveUpdate(title:string){
+
+        switch(title){
+            case 'Skills':
           // code to save or update skills
-          break;
-        case 'Experience':
+            break;
+            case 'Experience':
           // code to save or update experience details
-          break;
-        case 'Education':
+            break;
+            case 'Education':
           // code to save or update education details
-          break;
-        case 'Projects':
+            break;
+            case 'Projects':
           // code to save or update project details
-          break;
-        case 'Personal Details':
+            break;
+            case 'Personal Details':
           // code to save or update personal details
-          break;
-        case 'Links':
+            break;
+            case 'Links':
           // code to save or update links
-          break;
+            break;
+        }
     }
-  }
+
+
+    removeitem(skills : string){
+       
+        // const skill = this.data.
+
+
+    }
+
+
+
 }
