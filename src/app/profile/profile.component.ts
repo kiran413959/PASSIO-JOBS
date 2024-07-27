@@ -10,6 +10,7 @@ import { from } from 'rxjs';
 })
 export class ProfileComponent implements OnInit {
     designation:string | undefined
+    ishovered=false
 
     newskill:HTMLElement| null = document.getElementById('skill')
 
@@ -122,17 +123,20 @@ export class ProfileComponent implements OnInit {
                 
                 isOpen: false,
                 
-                Expdetails: {
+                Expdetails:[
+                 {
                     
                     designation: 'Frontend Developer',
                     
-                    duration: 'Feb 2021 - Present',
+                    duration:{
+                        fromDate:'2018' , toDate:'2022'} ,
                     
                     company: 'Company A',
                     
                     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
                 
                 }
+            ]
 
             },
             {
@@ -362,6 +366,107 @@ export class ProfileComponent implements OnInit {
         
     }
 
+    div1Hover: boolean = false
+    div2Hover: boolean = false
+    div3Hover: boolean[] = []
+
+    onMouseEnter(title:string, data: string){
+        if (title === "div1") {
+            this.div1Hover = true
+        }
+        else if (title === "div2") {
+            this.div2Hover = true
+        }
+        else if (title === "div3") {
+            if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
+                
+                const index = this.data[4].Projectdetails.findIndex(item => item.title === data)
+                
+                this.div3Hover[index] = true
+            }
+            
+        } else {
+            return
+        }
+        // switch(title){
+          
+        //     case 'Experience':
+        //         if(details ){
+
+        //             console.log(details);               
+                    
+        //             this.ishovered=true
+        //         }
+        //     break;
+
+        //     case 'Education':
+        //         if(details ){
+
+        //             console.log(details);               
+                    
+        //             this.ishovered=true
+        //         }
+        //     break;
+
+        //     case 'Projects':
+        //         if(details ){
+        //             console.log(details);               
+                    
+        //             this.ishovered=true
+        //         }
+        //     break;
+
+        // }
+    }
+
+    onMouseleave(title:string, data:string){
+        if (title === "div1") {
+            this.div1Hover = false
+        }
+        else if (title === "div2") {
+            this.div2Hover = false
+        }
+        else if (title === "div3") {
+            if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
+                
+                const index = this.data[4].Projectdetails.findIndex(item => item.title === data)
+                
+                this.div3Hover[index] = false
+            }
+        } else {
+            return
+        }
+        // switch(title){
+
+        //     case 'Experience':
+        //         if(details ){
+        //             console.log(details[0]);               
+                    
+        //             this.ishovered=false
+        //         }
+        //     break;
+
+        //     case 'Education':
+        //         if(details ){
+        //             console.log(details[0]);               
+                    
+        //             this.ishovered=false
+        //         }
+        //     break;
+
+        //     case 'Projects':
+        //         if(details ){
+
+        //             console.log(details[0]);               
+                    
+        //             this.ishovered=false
+        //         }
+        //     break;  
+
+        // }
+    }
+
+
     addinfo(title:string){
 
         switch(title){
@@ -406,7 +511,7 @@ export class ProfileComponent implements OnInit {
                     
 
 
-                    this.data[2].Expdetails.designation = 'New Designation';
+                    // this.data[2].Expdetails.designation = 'New Designation';
 
                 } else {
 
@@ -520,13 +625,15 @@ export class ProfileComponent implements OnInit {
         }
     }
 
+
     // A function for removing the skill 
-    removeitem(skills : string){
-       
-        console.log(skills);
+    removeitem(items : string ,title:string){
+       switch(title){
+        case 'skills':
+        console.log(items);
         if (this.data && Array.isArray(this.data) && this.data[1] && Array.isArray(this.data[1].content)) {
 
-            const index = this.data[1].content.findIndex(item => item.skill === skills)
+            const index = this.data[1].content.findIndex(item => item.skill === items)
 
             if(index !== -1){
 
@@ -538,11 +645,107 @@ export class ProfileComponent implements OnInit {
             console.error('Invalid data structure: data[1].content is not accessible');
         }
 
+        break;
+
+        case 'Experience':
+            
+            console.log(items);
+            if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
+
+                const index = this.data[2].Expdetails.findIndex(item => item.designation === items)
+
+                if(index!== -1){
+
+                    this.data[2].Expdetails.splice(index, 1);
+                }
+                }
+                else
+                {
+                    console.error('Invalid data structure: data[2].Expdetails is not accessible');
+                }   
+                
+              break;
+
+              case 'Education':
+
+                console.log(items);
+                if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
+
+                    const index = this.data[3].Edudetails.findIndex(item => item.major === items)
+        
+                    if(index!== -1){
+        
+                        this.data[3].Edudetails.splice(index, 1);
+                    }
+                } 
+                else
+                {
+                    console.error('Invalid data structure: data[3].Edudetails is not accessible');
+                }
+        
+            
+              break;
+              case 'Projects':
+
+                console.log(items);
+                if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
+
+                    const index = this.data[4].Projectdetails.findIndex(item => item.title === items)
+
+                    if(index!== -1){
+
+                        this.data[4].Projectdetails.splice(index, 1);
+                    }
+                } 
+                else
+                {
+                    console.error('Invalid data structure: data[4].Projectdetails is not accessible');
+                }
+              break;
+            //   case 'Personal Details':
+            //     console.log(items);
+            //     if (this.data && Array.isArray(this.data) && this.data[5] && this.data[5].detail) {
+
+            //         const index = this.data[5].detail.findIndex(item => item.title === items)
+
+            //         if(index!== -1){
+
+            //             this.data[5].detail.splice(index, 1);
+            //         }
+            //     } 
+            //     else
+            //     {
+            //         console.error('Invalid data structure: data[5].detail is not accessible');
+            //     }
+            // // code to save or update personal details
+            //   break;
+            //   case 'Links':
+            //     console.log(items);
+            //     if (this.data && Array.isArray(this.data) && this.data[6]) {
+
+            //         const index = this.data[6].details.findIndex(item => item.title === items)
+
+            //         if(index!== -1){
+
+            //             this.data[6].details.splice(index, 1);
+            //         }
+            //     } 
+            //     else
+            //     {
+            //         console.error('Invalid data structure: data[6] is not accessible');
+            //     }
+            // // code to save or update links
+            //   break;
+
+       }
+
+
 
     }
        
 
 
+   
 
 
 }

@@ -521,7 +521,7 @@
                                         class="skill-item tw-bg-slate-300 tw-px-1 tw-rounded-md tw-gap-2 " 
                                     >{{data.skill}}
                                     <i 
-                                        (click)="removeitem(data.skill)"
+                                        (click)="removeitem(data.skill, section.title)"
                                         class="fa-solid fa-xmark" 
                                     ></i>
 
@@ -537,17 +537,39 @@
                                     *ngIf="section.title === 'Experience'"    
                                     class="tw-w-full tw-flex tw-flex-col"  
                                 >
+                                     <div
+                                        *ngFor="let data of checkArray(section.Expdetails)"
+                                        (mouseenter)="onMouseEnter('div1','')" (mouseleave)="onMouseleave('div1','')"
+                                        class="tw-w-full tw-flex tw-justify-between tw-items-center"
+                                    >
+                                        <div>
+
+
                                     <h4 class="experience-heading">
-                                        {{ section.Expdetails?.designation }}
+                                        {{ data.designation }}
                                     </h4>
 
-                                    <span class="experience-details tw-text-gray-500 tw-font-medium">
-                                        From{{ section.Expdetails?.duration }}   To{{ section.Expdetails?.company }}
-                                    </span>
+                                    <p class="experience-details">
+                                        {{ data.company }}
+                                         <span class="tw-w-fit tw-flex"> 
+                                            <h3 class="tw-font-bold">From</h3> &nbsp; {{ data.duration.fromDate }} - &nbsp;
+                                            <h3 class="tw-font-bold">To</h3> &nbsp; {{data.duration.toDate}}</span>
+                                    </p>
 
                                     <p class="experience-description">
-                                        {{ section.Expdetails?.description }}
+                                        {{ data.description }}
                                     </p>
+                                    </div>
+                                    <button 
+                                        type="button"
+
+                                        *ngIf="div1Hover"
+                                        (click)="removeitem(data.designation, section.title)" 
+                                        class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md"
+                                    >
+                                    <i class="fa-solid fa-trash"></i>
+                                    </button>
+                                    </div>
                               </div>
 
                             <!-- Experience section details Ends -->
@@ -556,14 +578,15 @@
 
                                 <div   
                                     *ngIf=" section.title === 'Education' && checkArray(section.Edudetails)  " 
-                                    class="tw-w-full tw-flex tw-flex-col tw-gap-4 tw-bg-slate-300 tw-p-4" 
+                                    class="tw-w-full tw-flex tw-justify-between tw-items-center tw-gap-4 tw-bg-slate-300 tw-p-4 " 
                                     >
                                     <div
                                     *ngFor="let data of checkArray(section.Edudetails)"
-                                    
+                                    (mouseenter)="onMouseEnter('div2','')" (mouseleave)="onMouseleave('div2','')"
+                                    class="tw-w-full tw-flex tw-justify-between tw-items-center"
                                     >
 
-                                        
+                                        <div>
                                         <h4 class="education-heading">
                                             {{ data.degree }}
                                         </h4>
@@ -576,7 +599,18 @@
                                         <p class="education-description">
                                             {{ data.institution }}
                                         </p>
+                                        </div>
+
+                                        <button 
+                                            type="button"
+                                            *ngIf="div2Hover"
+                                            (click)="removeitem(data.major, section.title)" 
+                                            class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md"
+                                        >
+                                            <i class="fa-solid fa-trash"></i>
+                                        </button>
                                     </div>
+
                                 </div>
 
                             <!-- Education section detais ends -->
@@ -589,8 +623,10 @@
                                 >
                                     <div 
                                         *ngFor="let data of checkArray(section.Projectdetails)"
-                                        class="tw-w-full tw-bg-blue-200 tw-p-4 tw-flex tw-flex-col tw-gap-3"
+                                        (mouseenter)="onMouseEnter('div3',data.title)" (mouseleave)="onMouseleave('div3',data.title)"
+                                        class="tw-w-full tw-bg-blue-200 tw-p-4 tw-flex tw-justify-between tw-items-center  tw-gap-3"
                                     >
+                                        <div>
 
                                             <h4 class="projects-heading tw-font-medium">
                                                 {{ data.title }}
@@ -602,6 +638,17 @@
                                                 {{ data.technologies }}
                                             </span>
 
+                                            </div>
+                                            
+                                        <button 
+                                        type="button"
+                                        *ngIf="div3Hover"
+                                        
+                                        (click)="removeitem(data.title, section.title)" 
+                                        class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md"
+                                    >
+                                        <i class="fa-solid fa-trash"></i>
+                                    </button>
                                     </div>
 
                                 </div>
