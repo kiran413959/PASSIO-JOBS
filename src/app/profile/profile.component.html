@@ -260,38 +260,75 @@
                                     *ngIf=" section.title === 'Education'"  
                                     class="editor-window tw-flex tw-flex-col tw-justify-between tw-items-center tw-p-4 tw-gap-3"
                                 >
-                                    <input 
-                                        type="text"  
-                                        placeholder="Enter Education"   
-                                        class="tw-w-full"
-                                    ><br>
-
-                                    <div class="tw-w-fit tw-flex tw-gap-4 tw-justify-center tw-items-center">
-
-                                        <label 
-                                            for="From" 
-                                            class="tw-w-fit tw-flex tw-flex-col"
-                                        >From
-
-                                            <input 
-                                                type="date" 
-                                                name="From" 
-                                                id="From"
-                                            >
-                                        </label>
-
-                                        <label 
-                                            for="To" 
-                                            class="tw-w-fit tw-flex tw-flex-col"
-                                        >To
-                                            <input 
-                                                type="date" 
-                                                name="To" 
-                                                id="To"
-                                            >
-                                        </label>
+                                    <form 
+                                        [formGroup]="educationform"
+                                        *ngIf="data && checkArray(data) && data[3] && checkArray(data[3].Edudetails)"
+                                        class="tw-w-full tw-flex "
+                                        action="" 
+                                        method="post"
                                         
-                                    </div>
+                                    >
+                                        <div
+                                            [formGroup]="educationform "
+                                           
+                                            class="tw-w-1/2 tw-flex tw-flex-col tw-gap-10 tw-justify-center tw-items-center">
+
+                                            <input 
+                                                type="text"  
+                                                placeholder="Enter Education"   
+                                                class="tw-w-80perc"
+                                                formControlName="degree"
+                                            >
+
+                                            <input 
+                                                type="text"  
+                                                placeholder="field"   
+                                                class="tw-w-80perc"
+                                                formControlName="major"
+                                            ><br>
+
+                                        </div>
+
+                                        
+                                        <div 
+                                            [formGroup]="educationform"
+                                            class="tw-w-1/2 tw-flex tw-flex-col tw-gap-1 ">
+                                            <input 
+                                                type="text"  
+                                                placeholder="Institution"   
+                                                class="tw-w-80perc"
+                                                formControlName="institution"
+                                            ><br>
+
+                                            <div
+                                            [formGroup]="durationForm"
+                                                class="tw-w-full tw-flex tw-justify-center tw-items-center">
+                                                
+                                                <label 
+                                                    for="fromDate" 
+                                                    class="tw-w-fit tw-flex tw-flex-col"
+                                                    >From
+                                                
+                                                    <input 
+                                                        type="date" 
+                                                        formControlName="fromDate"
+                                                    >
+                                                </label>
+                                            
+                                                <label 
+                                                    for="toDate" 
+                                                    class="tw-w-fit tw-flex tw-flex-col"
+                                                >To
+
+                                                    <input 
+                                                        type="date" 
+                                                        formControlName="toDate" 
+                                                    >
+                                                </label>
+                                            </div>
+                                    
+                                        </div>
+                                    </form>
 
                                     <button 
                                         type="submit" 
@@ -300,7 +337,7 @@
                                         
                                         <i class="fa-solid fa-plus tw-text-sm tw-cursor-pointer"></i>
 
-                                        <h6 (click)="addinfo(section.title)" >Add</h6>
+                                        <h6 (click)="addinfo(section.title) " >Add</h6>
 
                                     </button>
                                 
@@ -505,7 +542,7 @@
                                     </h4>
 
                                     <span class="experience-details tw-text-gray-500 tw-font-medium">
-                                        {{ section.Expdetails?.duration }} - {{ section.Expdetails?.company }}
+                                        From{{ section.Expdetails?.duration }}   To{{ section.Expdetails?.company }}
                                     </span>
 
                                     <p class="experience-description">
@@ -518,18 +555,28 @@
                              <!-- Education section detais starts -->
 
                                 <div   
-                                    *ngIf=" section.title === 'Education'" 
-                                    class="tw-w-full tw-flex tw-flex-col" 
-                                >
-                                    <h4 class="education-heading">
-                                        {{ section.Edudetails?.degree }}
-                                    </h4>
-                                    <span class="education-details">
-                                        {{ section.Edudetails?.major }} - {{ section.Edudetails?.duration }}
-                                    </span>
-                                    <p class="education-description">
-                                        {{ section.Edudetails?.institution }}
-                                    </p>
+                                    *ngIf=" section.title === 'Education' && checkArray(section.Edudetails)  " 
+                                    class="tw-w-full tw-flex tw-flex-col tw-gap-4 tw-bg-slate-300 tw-p-4" 
+                                    >
+                                    <div
+                                    *ngFor="let data of checkArray(section.Edudetails)"
+                                    
+                                    >
+
+                                        
+                                        <h4 class="education-heading">
+                                            {{ data.degree }}
+                                        </h4>
+                                        <p class="education-details">
+                                            {{ data.major }}
+                                             <span class="tw-w-fit tw-flex"> 
+                                                <h3 class="tw-font-bold">From</h3> &nbsp; {{ data.duration.fromDate }} - &nbsp;
+                                                <h3 class="tw-font-bold">To</h3> &nbsp; {{data.duration.toDate}}</span>
+                                        </p>
+                                        <p class="education-description">
+                                            {{ data.institution }}
+                                        </p>
+                                    </div>
                                 </div>
 
                             <!-- Education section detais ends -->

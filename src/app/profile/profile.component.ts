@@ -1,4 +1,7 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild, ViewChildren } from '@angular/core';
+import { FormBuilder, FormControl, FormControlName, FormGroup, Validators } from '@angular/forms';
+import { DateAdapter } from '@angular/material/core';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -10,6 +13,9 @@ export class ProfileComponent implements OnInit {
 
     newskill:HTMLElement| null = document.getElementById('skill')
 
+    educationform!: FormGroup
+    durationForm!: FormGroup;
+
     @ViewChild("skillInput") skillInput!: ElementRef
 
     @ViewChild("logos") logos!: ElementRef
@@ -17,9 +23,23 @@ export class ProfileComponent implements OnInit {
     @ViewChild("viewclose") closebutton!: ElementRef
 
 
-    constructor(private renderer: Renderer2){
-        
-    }
+    constructor(
+        private renderer: Renderer2,
+        private formBuilder: FormBuilder
+      ) {
+        this.educationform = new FormGroup({
+          degree: new FormControl('', Validators.required),
+          major: new FormControl('', Validators.required),
+          duration: this.formBuilder.group({
+            fromDate: new FormControl('', Validators.required),
+            toDate: new FormControl('', Validators.required)
+          }),
+          institution: new FormControl('', Validators.required),
+        });
+        this.durationForm = this.educationform.controls['duration'] as FormGroup;
+
+      }
+      
 
 
 
@@ -123,17 +143,20 @@ export class ProfileComponent implements OnInit {
                 
                 isOpen: false,
                 
-                Edudetails: {
+                Edudetails: [
+                    {
                     
                     degree: 'Bachelor of Science',
                     
                     major: 'Computer Science',
                     
-                    duration: '2018 - 2022',
+                    duration:{
+                        fromDate:'2018' , toDate:'2022'} ,
                     
                     institution: 'Institution X'
                 
                 }
+            ]
 
             },
             {
@@ -380,6 +403,8 @@ export class ProfileComponent implements OnInit {
 
             case 'Experience':
                 if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
+                    
+
 
                     this.data[2].Expdetails.designation = 'New Designation';
 
@@ -390,10 +415,18 @@ export class ProfileComponent implements OnInit {
 
             break;
             case 'Education':
+            
+    
+                 if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
+               
 
-                if (this.data && Array.isArray(this.data) && this.data[3] && this.data[3].Edudetails) {
-
-                this.data[3].Edudetails.degree = 'New Degree';
+                this.data[3].Edudetails.push(this.educationform.value)
+                  
+                    console.log(this.educationform);
+                    
+                   
+                    
+                   
 
                 } else {
 
@@ -487,13 +520,28 @@ export class ProfileComponent implements OnInit {
         }
     }
 
-
+    // A function for removing the skill 
     removeitem(skills : string){
        
-        // const skill = this.data.
+        console.log(skills);
+        if (this.data && Array.isArray(this.data) && this.data[1] && Array.isArray(this.data[1].content)) {
+
+            const index = this.data[1].content.findIndex(item => item.skill === skills)
+
+            if(index !== -1){
+
+                this.data[1].content.splice(index, 1);
+            }
+        } 
+        else
+        {
+            console.error('Invalid data structure: data[1].content is not accessible');
+        }
 
 
     }
+       
+
 
 
 
