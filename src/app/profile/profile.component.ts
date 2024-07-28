@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
     ishovered=false
 
     newskill:HTMLElement| null = document.getElementById('skill')
-
+    experienceform!:FormGroup
     educationform!: FormGroup
     durationForm!: FormGroup;
 
@@ -50,6 +50,10 @@ export class ProfileComponent implements OnInit {
             {icon:'github'},
             
             {icon:'linkedin'},
+
+            {icon:'internet-explorer'},
+
+            {icon:'google'},
             
             {icon:'discord'},
             
@@ -136,6 +140,18 @@ export class ProfileComponent implements OnInit {
                     
                     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
                 
+                },
+
+                {
+
+                    designation: 'Software Engineer',
+                    
+                    duration:{
+                        fromDate:'2020' , toDate:'2022'} ,
+                    
+                    company: 'Company B',
+                    
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit...'
                 }
             ]
 
@@ -151,17 +167,27 @@ export class ProfileComponent implements OnInit {
                 Edudetails: [
                     {
                     
-                    degree: 'Bachelor of Science',
+                        degree: 'Bachelor of Science',
                     
-                    major: 'Computer Science',
+                        major: 'Computer Science',
                     
-                    duration:{
+                        duration:{
                         fromDate:'2018' , toDate:'2022'} ,
                     
-                    institution: 'Institution X'
+                        institution: 'Institution X'
                 
-                }
-            ]
+                    },
+                    {   
+                        degree: 'Master of Science',
+                        
+                        major: 'Computer Engineering',
+                        
+                        duration:{
+                            fromDate:'2016' , toDate:'2020'} ,
+                        
+                        institution: 'Institution Y'
+                    }
+                ]       
 
             },
             {
@@ -288,28 +314,36 @@ export class ProfileComponent implements OnInit {
           
                         title: 'Github',
           
-                        link: 'https://github.com/username'
+                        link: 'https://github.com/username',
+
+                        icon:'github'
         
                     },
                     {
           
                         title: 'LinkedIn',
           
-                        link: 'https://www.linkedin.com/in/username'
+                        link: 'https://www.linkedin.com/in/username',
+
+                        icon:'linkedin'
         
                     },
                     {
           
                         title: 'Website',
           
-                        link: 'https://example.com'
+                        link: 'https://example.com',
+
+                        icon:'internet-explorer'
         
                     },
                     {   
           
                         title: 'Email',
           
-                        link:'mailto:username@example.com'
+                        link:'mailto:username@example.com',
+
+                        icon:'google'
         
                     }
       
@@ -329,11 +363,12 @@ export class ProfileComponent implements OnInit {
             return [];
         }
     }
+    
 
-    ngOnInit() {
-      
+    ngOnInit():void {
         
-    // ...
+    
+        
     }
 
     openEditor(section: any) {
@@ -366,14 +401,27 @@ export class ProfileComponent implements OnInit {
     getIcon(iconName: string){
         console.log(iconName);
         this.selectedIcon = iconName
-        
     }
 
-    linkIcon: String | null = null
-    getlinkicon(title:string){
+    linkIcon: string | undefined
+    getlinkicon(title:string):string|void{
         console.log(title);
         this.linkIcon = title.toLowerCase()
+        console.log(this.linkIcon);
+        
+        let findIcon = this.links.find(icon => icon.icon == this.linkIcon)
+        if(this.linkIcon === null){
+           console.log('nooooooooooooooooooooo');
+        }
+        else{
+            console.log(findIcon);
+        }
+        
+    
     }
+    
+    
+
 
 
 
@@ -383,25 +431,13 @@ export class ProfileComponent implements OnInit {
     hoveredData: any | null = null;
 
     onMouseEnter( data: any){
+
         this.hoveredData = data
 
-        if (data === "div1") {
-            this.div1Hover = true
-        }
-        else if (data === "div2") {
-            this.div2Hover = true
-        }
-        
-        
     }
 
     onMouseleave( data:any){
-        if (data === "div1") {
-            this.div1Hover = false
-        }
-        else if (data === "div2") {
-            this.div2Hover = false
-        }
+       
         this.hoveredData = null;
         
     }
@@ -447,11 +483,18 @@ export class ProfileComponent implements OnInit {
             break;
 
             case 'Experience':
-                if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
+
+                if (this.data[2] && !Array.isArray(this.data[2].Expdetails)) {
+
+                    this.data[2].Expdetails = []; 
+                }   
+
+
+                if (this.data && Array.isArray(this.data) && this.data[2] && Array.isArray(this.data[2].Expdetails)) {
                     
+                    this.data[2].Expdetails.push(this.experienceform.value)
 
 
-                    // this.data[2].Expdetails.designation = 'New Designation';
 
                 } else {
 
@@ -460,19 +503,20 @@ export class ProfileComponent implements OnInit {
 
             break;
             case 'Education':
+
+                   
+                if (this.data[3] && !Array.isArray(this.data[3].Edudetails)) {
+
+                    this.data[3].Edudetails = []; 
+                }   
             
     
-                 if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
+                if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
                
-
-                this.data[3].Edudetails.push(this.educationform.value)
+                    this.data[3].Edudetails.push(this.educationform.value)
                   
                     console.log(this.educationform);
-                    
-                   
-                    
-                   
-
+         
                 } else {
 
                     console.error('Invalid data structure: data[3].Edudetails is not accessible');
@@ -513,7 +557,7 @@ export class ProfileComponent implements OnInit {
                         
                     if (this.data[6].details) {
                             
-                        this.data[6].details.push({title: 'links', link: 'https://newlink.com'});
+                        this.data[6].details.push({title: 'links', link: 'https://newlink.com', icon: 'icon',});
                     
                     } else {
 
@@ -591,76 +635,79 @@ export class ProfileComponent implements OnInit {
                 case 'Experience':
             
                     console.log(items);
-            if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
 
-                const index = this.data[2].Expdetails.findIndex(item => item.designation === items)
+                    if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
 
-                if(index!== -1){
+                        const index = this.data[2].Expdetails.findIndex(item => item.designation === items)
 
-                    this.data[2].Expdetails.splice(index, 1);
-                }
-                }
-                else
-                {
-                    console.error('Invalid data structure: data[2].Expdetails is not accessible');
-                }   
+                        if(index!== -1){
+
+                            this.data[2].Expdetails.splice(index, 1);
+                        }
+                    }
+                    else
+                    {
+                        console.error('Invalid data structure: data[2].Expdetails is not accessible');
+                    }   
                 
-              break;
+                break;
 
-              case 'Education':
+                case 'Education':
 
-                console.log(items);
-                if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
+                    console.log(items);
+                    if (this.data && Array.isArray(this.data) && this.data[3] && Array.isArray(this.data[3].Edudetails)) {
 
-                    const index = this.data[3].Edudetails.findIndex(item => item.major === items)
+                        const index = this.data[3].Edudetails.findIndex(item => item.major === items)
         
-                    if(index!== -1){
+                        if(index!== -1){
         
-                        this.data[3].Edudetails.splice(index, 1);
+                            this.data[3].Edudetails.splice(index, 1);
+                        }
+                    } 
+                    else
+                    {
+                        console.error('Invalid data structure: data[3].Edudetails is not accessible');
                     }
-                } 
-                else
-                {
-                    console.error('Invalid data structure: data[3].Edudetails is not accessible');
-                }
         
-            
-              break;
-              case 'Projects':
+                break;
+                case 'Projects':
 
-                console.log(items);
-                if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
+                    console.log(items);
+                    if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
 
-                    const index = this.data[4].Projectdetails.findIndex(item => item.title === items)
+                        const index = this.data[4].Projectdetails.findIndex(item => item.title === items)
 
-                    if(index!== -1){
+                        if(index!== -1){
 
-                        this.data[4].Projectdetails.splice(index, 1);
+                            this.data[4].Projectdetails.splice(index, 1);
+                        }
+                    } 
+                    else
+                    {
+                        console.error('Invalid data structure: data[4].Projectdetails is not accessible');
                     }
-                } 
-                else
-                {
-                    console.error('Invalid data structure: data[4].Projectdetails is not accessible');
-                }
-              break;
-            //   
-            //   case 'Links':
-            //     console.log(items);
-            //     if (this.data && Array.isArray(this.data) && this.data[6]) {
+                break;
+              
+                case 'links':
+                    if (this.data && Array.isArray(this.data) && this.data[6] && Array.isArray(this.data[6].details) ) {
+                        console.log(items);
 
-            //         const index = this.data[6].details.findIndex(item => item.title === items)
+                        const index = this.data[6].details.findIndex(item => item.title === items)
 
-            //         if(index!== -1){
+                        if(index!== -1){
 
-            //             this.data[6].details.splice(index, 1);
-            //         }
-            //     } 
-            //     else
-            //     {
-            //         console.error('Invalid data structure: data[6] is not accessible');
-            //     }
-            // // code to save or update links
-            //   break;
+                            this.data[6].details.splice(index, 1);
+                        }
+                    } 
+                    else
+                    {
+                        console.error('Invalid data structure: data[6] is not accessible');
+                    }
+                break;
+                default:
+
+                    console.error('Invalid title provided');
+                break;
 
        }
 
