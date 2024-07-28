@@ -9,6 +9,7 @@ import { from } from 'rxjs';
   styleUrls: ['./profile.component.css']
 })
 export class ProfileComponent implements OnInit {
+    [x: string]: any;
     designation:string | undefined
     ishovered=false
 
@@ -330,6 +331,8 @@ export class ProfileComponent implements OnInit {
     }
 
     ngOnInit() {
+      
+        
     // ...
     }
 
@@ -366,104 +369,41 @@ export class ProfileComponent implements OnInit {
         
     }
 
-    div1Hover: boolean = false
-    div2Hover: boolean = false
-    div3Hover: boolean[] = []
-
-    onMouseEnter(title:string, data: string){
-        if (title === "div1") {
-            this.div1Hover = true
-        }
-        else if (title === "div2") {
-            this.div2Hover = true
-        }
-        else if (title === "div3") {
-            if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
-                
-                const index = this.data[4].Projectdetails.findIndex(item => item.title === data)
-                
-                this.div3Hover[index] = true
-            }
-            
-        } else {
-            return
-        }
-        // switch(title){
-          
-        //     case 'Experience':
-        //         if(details ){
-
-        //             console.log(details);               
-                    
-        //             this.ishovered=true
-        //         }
-        //     break;
-
-        //     case 'Education':
-        //         if(details ){
-
-        //             console.log(details);               
-                    
-        //             this.ishovered=true
-        //         }
-        //     break;
-
-        //     case 'Projects':
-        //         if(details ){
-        //             console.log(details);               
-                    
-        //             this.ishovered=true
-        //         }
-        //     break;
-
-        // }
+    linkIcon: String | null = null
+    getlinkicon(title:string){
+        console.log(title);
+        this.linkIcon = title.toLowerCase()
     }
 
-    onMouseleave(title:string, data:string){
-        if (title === "div1") {
+
+
+
+    div1Hover: boolean = false
+    div2Hover: boolean = false
+    hoveredData: any | null = null;
+
+    onMouseEnter( data: any){
+        this.hoveredData = data
+
+        if (data === "div1") {
+            this.div1Hover = true
+        }
+        else if (data === "div2") {
+            this.div2Hover = true
+        }
+        
+        
+    }
+
+    onMouseleave( data:any){
+        if (data === "div1") {
             this.div1Hover = false
         }
-        else if (title === "div2") {
+        else if (data === "div2") {
             this.div2Hover = false
         }
-        else if (title === "div3") {
-            if (this.data && Array.isArray(this.data) && this.data[4] && this.data[4].Projectdetails) {
-                
-                const index = this.data[4].Projectdetails.findIndex(item => item.title === data)
-                
-                this.div3Hover[index] = false
-            }
-        } else {
-            return
-        }
-        // switch(title){
-
-        //     case 'Experience':
-        //         if(details ){
-        //             console.log(details[0]);               
-                    
-        //             this.ishovered=false
-        //         }
-        //     break;
-
-        //     case 'Education':
-        //         if(details ){
-        //             console.log(details[0]);               
-                    
-        //             this.ishovered=false
-        //         }
-        //     break;
-
-        //     case 'Projects':
-        //         if(details ){
-
-        //             console.log(details[0]);               
-                    
-        //             this.ishovered=false
-        //         }
-        //     break;  
-
-        // }
+        this.hoveredData = null;
+        
     }
 
 
@@ -628,28 +568,29 @@ export class ProfileComponent implements OnInit {
 
     // A function for removing the skill 
     removeitem(items : string ,title:string){
-       switch(title){
-        case 'skills':
-        console.log(items);
-        if (this.data && Array.isArray(this.data) && this.data[1] && Array.isArray(this.data[1].content)) {
+        
+        switch(title){
+            case 'Skills':
+                console.log(items);
+                if (this.data && Array.isArray(this.data) && this.data[1] && Array.isArray(this.data[1].content)) {
 
-            const index = this.data[1].content.findIndex(item => item.skill === items)
+                    const index =  this.data[1].content.findIndex(item => item.skill === items)
 
-            if(index !== -1){
+                    if (index !== -1) {
 
-                this.data[1].content.splice(index, 1);
-            }
-        } 
-        else
-        {
-            console.error('Invalid data structure: data[1].content is not accessible');
-        }
+                        this.data[1].content.splice(index, 1);
+                    }
+                } 
+                else
+                {
+                    console.error('Invalid data structure: data[1].content is not accessible');
+                }
 
-        break;
+                break;
 
-        case 'Experience':
+                case 'Experience':
             
-            console.log(items);
+                    console.log(items);
             if (this.data && Array.isArray(this.data) && this.data[2] && this.data[2].Expdetails) {
 
                 const index = this.data[2].Expdetails.findIndex(item => item.designation === items)
@@ -702,23 +643,7 @@ export class ProfileComponent implements OnInit {
                     console.error('Invalid data structure: data[4].Projectdetails is not accessible');
                 }
               break;
-            //   case 'Personal Details':
-            //     console.log(items);
-            //     if (this.data && Array.isArray(this.data) && this.data[5] && this.data[5].detail) {
-
-            //         const index = this.data[5].detail.findIndex(item => item.title === items)
-
-            //         if(index!== -1){
-
-            //             this.data[5].detail.splice(index, 1);
-            //         }
-            //     } 
-            //     else
-            //     {
-            //         console.error('Invalid data structure: data[5].detail is not accessible');
-            //     }
-            // // code to save or update personal details
-            //   break;
+            //   
             //   case 'Links':
             //     console.log(items);
             //     if (this.data && Array.isArray(this.data) && this.data[6]) {

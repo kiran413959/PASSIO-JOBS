@@ -539,7 +539,7 @@
                                 >
                                      <div
                                         *ngFor="let data of checkArray(section.Expdetails)"
-                                        (mouseenter)="onMouseEnter('div1','')" (mouseleave)="onMouseleave('div1','')"
+                                        (mouseenter)="onMouseEnter('div1')" (mouseleave)="onMouseleave('div1')"
                                         class="tw-w-full tw-flex tw-justify-between tw-items-center"
                                     >
                                         <div>
@@ -562,7 +562,6 @@
                                     </div>
                                     <button 
                                         type="button"
-
                                         *ngIf="div1Hover"
                                         (click)="removeitem(data.designation, section.title)" 
                                         class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md"
@@ -582,7 +581,7 @@
                                     >
                                     <div
                                     *ngFor="let data of checkArray(section.Edudetails)"
-                                    (mouseenter)="onMouseEnter('div2','')" (mouseleave)="onMouseleave('div2','')"
+                                    (mouseenter)="onMouseEnter('div2')" (mouseleave)="onMouseleave('div2')"
                                     class="tw-w-full tw-flex tw-justify-between tw-items-center"
                                     >
 
@@ -623,9 +622,10 @@
                                 >
                                     <div 
                                         *ngFor="let data of checkArray(section.Projectdetails)"
-                                        (mouseenter)="onMouseEnter('div3',data.title)" (mouseleave)="onMouseleave('div3',data.title)"
+                                        (mouseenter)="onMouseEnter(data)" (mouseleave)="onMouseleave(data)"
                                         class="tw-w-full tw-bg-blue-200 tw-p-4 tw-flex tw-justify-between tw-items-center  tw-gap-3"
                                     >
+                                    
                                         <div>
 
                                             <h4 class="projects-heading tw-font-medium">
@@ -639,16 +639,14 @@
                                             </span>
 
                                             </div>
+                                            <button type="button"
+                                    *ngIf="data === hoveredData"
+                                    (click)="removeitem(data.title, section.title)"
+                                    class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md">
+                              <i class="fa-solid fa-trash"></i>
+                            </button>  
                                             
-                                        <button 
-                                        type="button"
-                                        *ngIf="div3Hover"
-                                        
-                                        (click)="removeitem(data.title, section.title)" 
-                                        class="tw-bg-red-600 tw-w-fit tw-h-fit tw-p-2 tw-rounded-md"
-                                    >
-                                        <i class="fa-solid fa-trash"></i>
-                                    </button>
+                                 
                                     </div>
 
                                 </div>
@@ -678,9 +676,15 @@
                     
                                                    <a  
                                                         *ngFor="let data of checkArray(section.details)"
-                                                        class="tw-font-medium tw-text-black"
+                                                        class="tw-h-6 tw-w-full tw-font-medium tw-text-black"
                                                         href="{{data.link}}"
+                                                        onload="getlinkicon(data.title)"
+                                                        
                                                     >
+
+                                                    <i class="fa-brands fa-{{data.title}} tw-w-14 tw-text-xl tw-border-1.7 tw-border-solid tw-border-black" ></i>
+                                            
+                                                        
                                                         {{ data.title }}
                                                     </a>
                                 
