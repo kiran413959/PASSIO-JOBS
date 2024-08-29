@@ -9,19 +9,23 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent implements OnInit {
+[x: string]: any;
     
-       employee={id:'employee',title1:'Jobs',title2:'Companies'}
-       employer={id:'employer',title1:'Jobs',title2:'Candidates'}
-
+    employee={id:'employee',title1:'Jobs',title2:'Companies'}
+    employer={id:'employer',title1:'Jobs',title2:'Candidates'}
+    usertype = localStorage.getItem('usertype')
 
 
     isLoggedIn: boolean = false;
+    Employer: any;
+    Jobseeker:any;
  
     constructor (private router : Router){}
 
     ngOnInit() {
       const token = localStorage.getItem('token');
       this.isLoggedIn = token !== null;
+      const usertype = localStorage.getItem('usertype');
       
     }
      
@@ -40,6 +44,10 @@ export class HeaderComponent implements OnInit {
 
         navigateToProfile(){
           this.router.navigate(['/profile'])
+        }
+
+        navigateToHome(){
+            this.router.navigate(['/home'])
         }
 
       }

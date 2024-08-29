@@ -30,19 +30,40 @@ export class LoginComponent implements OnInit {
   }
 
   submitlogin() {
+
     this.authService.login(this.loginForm.value).subscribe({
-      next: (data: any) => {
-        localStorage.setItem('token', data.token);
-        console.log(data);
-        const Token = localStorage.getItem('token')
-        console.log(Token);
-        
-        this.router.navigate([`/home`]);
-      },
-      error: (error) => {
-        console.log(error);
-      },
+
+        next: (data: any) => {
+
+            localStorage.setItem('token', data.token);
+            localStorage.setItem('usertype',data.UserType)
+            console.log(data);
+
+            const Token = localStorage.getItem('token')
+            const usertype = localStorage.getItem('usertype')
+            console.log(Token);
+
+            if(usertype == 'Employer' ){
+
+                this.router.navigate([`employer/home`])   
+
+            }else if(usertype == 'Jobseeker' ){
+
+                this.router.navigate([`jobseeker/home`])
+
+            }else{
+                this.router.navigate(['/error'])
+            }
+    
+        },
+        error: (error) => {
+
+            console.log(error);
+
+        },
+
     });
+
   }
 
   choosingUser() {

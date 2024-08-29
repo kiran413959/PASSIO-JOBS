@@ -516,7 +516,7 @@ export class ProfileComponent implements OnInit {
                     this.data[3].Edudetails.push(this.educationform.value)
                   
                     console.log(this.educationform);
-         
+          
                 } else {
 
                     console.error('Invalid data structure: data[3].Edudetails is not accessible');

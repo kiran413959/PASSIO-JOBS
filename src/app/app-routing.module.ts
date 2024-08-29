@@ -12,6 +12,7 @@ import { InboxComponent } from './inbox/inbox.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EmployerHomeComponent } from './employer-side/employer-home/employer-home.component';
+import { ErrorComponent } from './error/error.component';
 
 const routes: Routes = [
   {
@@ -19,8 +20,9 @@ const routes: Routes = [
 
     children:[
       {
-        path:'home', component:HomePageComponent
-      }
+        path:'jobseeker/home', component:HomePageComponent
+      },
+      
      
       
     ]
@@ -55,7 +57,10 @@ const routes: Routes = [
     path:'profile',component:ProfileComponent
   },
   {
-    path:'employer',component:EmployerHomeComponent
+    path:'employer/home',component:EmployerHomeComponent
+  },
+  {
+    path:'error',component:ErrorComponent
   }
 ];
 

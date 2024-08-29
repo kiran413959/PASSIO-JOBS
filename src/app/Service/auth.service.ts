@@ -30,6 +30,7 @@ export class AuthService {
   login (data: any) {
     console.log(data);
     let Usertype=data.Usertype
+    localStorage
     
     localStorage.getItem(data.token)
     return this.http.post(`${this.baseUrl}/login`, data)

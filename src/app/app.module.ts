@@ -31,6 +31,7 @@ import { MessageComponent } from './inbox/message/message.component';
 import { NotificationsComponent } from './notifications/notifications.component';
 import { ProfileComponent } from './profile/profile.component';
 import { EmployerHomeComponent } from './employer-side/employer-home/employer-home.component';
+import { ErrorComponent } from './error/error.component';
 
 
 
@@ -57,6 +58,7 @@ import { EmployerHomeComponent } from './employer-side/employer-home/employer-ho
     NotificationsComponent,
     ProfileComponent,
     EmployerHomeComponent,
+    ErrorComponent,
     
   ],
   imports: [
